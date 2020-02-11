@@ -60,13 +60,23 @@ const backGeometry = new THREE.BoxBufferGeometry(50,100,100);
 let backTexture = new THREE.TextureLoader().load( 'assets/textures/pexels-photo-207142.jpeg' );
 let backMaterial = new THREE.MeshBasicMaterial( { map: sideTexture } );
 let back = new THREE.Mesh( wallGeometry, wallMaterial);
-back.position.x = -0;
+back.position.x = -0; 
 back.position.z = -250;
 back.rotation.y = 124.1; 
 scene.add( back );
 
 
-
+//Bridge
+const bridgeGeometry = new THREE.BoxBufferGeometry(10,300,50);
+let bridgeTexture = new THREE.TextureLoader().load( 'assets/textures/bridge.jpg' );
+let bridgeMaterial = new THREE.MeshBasicMaterial( { map: sideTexture } );
+let bridge = new THREE.Mesh( bridgeGeometry,bridgeMaterial);
+bridge.position.x = -0;
+bridge.position.z = 190;
+bridge.rotation.y = 30; 
+bridge.rotation.x = 1.55;
+bridge.position.y = 30;
+scene.add( bridge );
 
 
 //Side Pillar
