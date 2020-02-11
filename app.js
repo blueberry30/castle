@@ -8,28 +8,29 @@ document.addEventListener( 'keypress', onDocumentKeyPress, false );
 
 //----------------Drawables----------------------
 //Sky
-let skyTexture = new THREE.TextureLoader().load( 'textures/high-clouds.jpg' );
+let skyTexture = new THREE.TextureLoader().load( 'assets/textures/high-clouds.jpg' );
 let skyMaterial = new THREE.MeshBasicMaterial( { map: skyTexture } );
 scene.background = (skyTexture);
 
 //Ground
 const groundGeometry = new THREE.BoxBufferGeometry(10000,10,10000);
-let groundTexture = new THREE.TextureLoader().load( 'textures/grass_grass_0098_01_preview.jpg' );
+let groundTexture = new THREE.TextureLoader().load( 'assets/textures/water.jpg' );
 let groundMaterial = new THREE.MeshBasicMaterial( { map: groundTexture } );
 let ground = new THREE.Mesh( groundGeometry, groundMaterial);
 ground.position.y = 50;
 scene.add( ground );
 
+
 //Center Building
 const centerGeometry = new THREE.BoxBufferGeometry(100,100,80);
-let centerTexture = new THREE.TextureLoader().load( 'textures/Brick Wall Windows 1.png' );
+let centerTexture = new THREE.TextureLoader().load( 'assets/textures/Brick Wall Windows 1.png' );
 let centerMaterial = new THREE.MeshBasicMaterial( { map: centerTexture } );
 let center = new THREE.Mesh( centerGeometry, centerMaterial);
 scene.add( center );
 
 //Side Building
 const sideGeometry = new THREE.BoxBufferGeometry(50,100,40);
-let sideTexture = new THREE.TextureLoader().load( 'textures/pexels-photo-207142.jpeg' );
+let sideTexture = new THREE.TextureLoader().load( 'assets/textures/pexels-photo-207142.jpeg' );
 let sideMaterial = new THREE.MeshBasicMaterial( { map: sideTexture } );
 let side = new THREE.Mesh( sideGeometry, sideMaterial);
 side.position.x = -80;
@@ -42,7 +43,7 @@ scene.add( side1 );
 
 //Side Wall
 const wallGeometry = new THREE.BoxBufferGeometry(50,100,250);
-let wallTexture = new THREE.TextureLoader().load( 'textures/pexels-photo-207142.jpeg' );
+let wallTexture = new THREE.TextureLoader().load( 'assets/textures/pexels-photo-207142.jpeg' );
 let wallMaterial = new THREE.MeshBasicMaterial( { map: sideTexture } );
 let wall = new THREE.Mesh( wallGeometry, wallMaterial);
 wall.position.x = -130;
@@ -56,7 +57,7 @@ scene.add( wall1 );
 
 //Back Wall
 const backGeometry = new THREE.BoxBufferGeometry(50,100,100);
-let backTexture = new THREE.TextureLoader().load( 'textures/pexels-photo-207142.jpeg' );
+let backTexture = new THREE.TextureLoader().load( 'assets/textures/pexels-photo-207142.jpeg' );
 let backMaterial = new THREE.MeshBasicMaterial( { map: sideTexture } );
 let back = new THREE.Mesh( wallGeometry, wallMaterial);
 back.position.x = -0;
@@ -65,9 +66,12 @@ back.rotation.y = 124.1;
 scene.add( back );
 
 
+
+
+
 //Side Pillar
 const pillarGeometry = new THREE.CylinderBufferGeometry(25, 25, 100, 250);
-let pillarTexture = new THREE.TextureLoader().load( 'textures/Brick Wall Windows 1.png' );
+let pillarTexture = new THREE.TextureLoader().load( 'assets/textures/Brick Wall Windows 1.png' );
 let pillarMaterial = new THREE.MeshBasicMaterial( { map: pillarTexture } );
 let pillar = new THREE.Mesh( pillarGeometry, pillarMaterial);
 pillar.position.x = -130;
@@ -86,9 +90,10 @@ pillar3.position.x = -130;
 pillar3.position.z = -250;
 scene.add( pillar3 );
 
+
 //Roof Pillar
 const roofGeometry = new THREE.ConeBufferGeometry(29,100,200);
-let roofTexture = new THREE.TextureLoader().load( 'textures/Brick Wall Windows 1.png' );
+let roofTexture = new THREE.TextureLoader().load( 'assets/textures/Brick Wall Windows 1.png' );
 let roofMaterial = new THREE.MeshBasicMaterial( { map: roofTexture } );
 let roofRight = new THREE.Mesh( roofGeometry, roofMaterial);
 roofRight.rotation.y = 2;
@@ -138,69 +143,11 @@ let renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-// posx = 0;
-// posz = 0;
-
-// limx = 200;
-// limz = 0;
-
 //----------------Functions----------------------
 function animate() {
     requestAnimationFrame( animate );
         scene.rotation.y += 0.008;
-        // if (posx == 0){
-        //     camera.position.x += 1;
-        // }
-        // else{
-        //     camera.position.x -= 1;
-        // }
-        // if (posz == 0){
-        //     camera.position.z -= 1;
-        // }
-        // else{
-        //     camera.position.z += 1;
-        // }
-        // camera.rotation.y += 0.003;
-        // if (posx == 0 && camera.position.x >= limx){
-        //     posx = 1;
-        //     if (limz == 0){
-        //         limx = 0;
-        //     }
-        //     else{
-        //         limx = -200;
-        //     }
-        // }
-        // else{
-        //     if (posx == 1 && camera.position.x < limx){
-        //         posx = 0;
-        //         if (limz == 0){
-        //             limx = 0;
-        //         }
-        //         else{
-        //             limx = 200;
-        //         }
-        //     }
-        // }
-        // if (posz == 0 && camera.position.z < limz){
-        //     posz = 1;
-        //     if (limx == 0){
-        //         limz = 0;
-        //     }
-        //     else{
-        //         limz = -200;
-        //     }
-        // }
-        // else{
-        //     if (posz == 1 && camera.position.z > limz){
-        //         posz = 0;
-        //         if (limx == 0){
-        //             limz = 0;
-        //         }
-        //         else{
-        //             limz = 200;
-        //         }
-        //     }
-        // }
+
     renderer.render( scene, camera );
 }
 
